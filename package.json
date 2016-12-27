@@ -1,0 +1,27 @@
+{
+  "name": "phonicall",
+  "version": "0.0.1",
+  "description": "Flashcards with a memory",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+	  "watch": "watchify src/*.js -t babelify -o app/bundle.js --debug --verbose",
+	  "transform": "browserify src/*.js -t babelify --outfile app/bundle.js",
+	  "test": "istanbul cover node_modules/mocha/bin/_mocha"
+  },
+  "author": "Leon Ormes",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "eslint-config-google": "^0.7.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "watchify": "^3.8.0"
+  }
+}
