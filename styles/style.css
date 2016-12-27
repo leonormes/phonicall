@@ -1,37 +1,34 @@
 /* Styles go here */
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+
 
 body {
 	overflow:hidden;
 }
 
+.card-deck {
+	display: inline-flex;
+	margin: 10px;
+}
 .container {
 	font-family: 'Aref Ruqaa', serif;
 }
 
 .header {
 	font-family: 'Open Sans', sans-serif;
+	line-height: 3vmin;
+	font-size: 3vmin;
 }
 .content {
 	display: flex;
 	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
 }
 #flashcard {
 	width: 90vmin;
-	margin: 20px;
 	font-size: 16px;
 	text-align: center;
-	line-height: 50vmin;
-	/* 100 = view port width, as 1vw = 1/100th of that
-	So if the container is 50% of view port (as here)
-	then factor that into how you want it to size.
-	Let's say you like 5vw if it were the whole width,
-	then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
-	*/
-	font-size: 50vmin;
+	line-height: 55vmin;
+	font-size: 55vmin;
 }
