@@ -1,5 +1,5 @@
 const phonemes = require('./phonemes.js');
-
+const removeContent = require('./removeContent.js');
 document.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 	document.body.onload = createPage();
@@ -140,11 +140,4 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(cardSet);
 		return cardSet;
 	};
-
-	function removeContent() {
-		let children = document.getElementsByClassName('content');
-		while (children[0].firstChild) {
-			children[0].removeChild(children[0].firstChild);
-		}
-	}
 });
