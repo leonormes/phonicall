@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	const cardSet = [];
 	let cardNumber = 0;
 	const tasks = ['Teach', 'Analyse'];
-	let headText = 'Billy';
 
 	function addTasks() {
 		tasks.forEach(function(task) {
@@ -43,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		heading.addEventListener('click', function() {
 			removeElements.removeContent();
 			addTasks();
+			setHeadingText('What to do?');
 		});
 		document.getElementsByClassName('header')[0].appendChild(heading);
 		setHeadingText('What to do');
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		let parentDiv = document.getElementById('heading');
 		let textNode = document.createTextNode(text);
 		parentDiv.appendChild(textNode);
-		console.log(parentDiv, text);
 	};
 	addHeading();
 	addTasks();
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function createFlashCard(setID) {
 		let card = flashCardSet(setID);
-		setHeadingText(card);
+		setHeadingText('Phase ' + setID);
 		let phoneme = document.createElement('div');
 		phoneme.setAttribute('id', 'flashcard');
 		phoneme.addEventListener('click', function() {

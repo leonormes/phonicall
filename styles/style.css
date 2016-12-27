@@ -22,16 +22,16 @@ body {
 	justify-content: center;
 }
 #flashcard {
-	width: 90vw;
-	border: 1px solid black;
+	width: 90vmin;
 	margin: 20px;
 	font-size: 16px;
-	justify-content: center;
+	text-align: center;
+	line-height: 50vmin;
 	/* 100 = view port width, as 1vw = 1/100th of that
 	So if the container is 50% of view port (as here)
 	then factor that into how you want it to size.
 	Let's say you like 5vw if it were the whole width,
 	then for this container, size it at 2.5vw (5 * .5 [i.e. 50%])
 	*/
-	font-size: 40vmin;
+	font-size: 50vmin;
 }
