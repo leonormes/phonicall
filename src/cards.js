@@ -1,6 +1,6 @@
-import createPage from './createPage';
-import phonemes from './phonemes';
-import removeElements from './removeElements';
+import {createPage} from './createPage';
+import {phonemes} from './phonemes';
+import {removeElements} from './removeElements';
 
 const cards = {
 	cardSet: [],
@@ -56,4 +56,4 @@ const cards = {
 		card.replaceChild(grapheme, card.childNodes[0]);
 	},
 };
-module.exports = cards;
+export {cards};

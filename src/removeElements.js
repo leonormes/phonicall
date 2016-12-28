@@ -12,4 +12,4 @@ const removeElements = {
 		}
 	},
 };
-module.exports = removeElements;
+export {removeElements};

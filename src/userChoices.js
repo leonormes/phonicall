@@ -1,6 +1,6 @@
-import cards from './cards';
-import createPage from './createPage';
-import removeElements from './removeElements';
+import {cards} from './cards';
+import {createPage} from './createPage';
+import {removeElements} from './removeElements';
 
 const userChoices = {
 	enterApp: function(task) {
@@ -18,4 +18,4 @@ const userChoices = {
 		}
 	},
 };
-module.exports = userChoices;
+export {userChoices};

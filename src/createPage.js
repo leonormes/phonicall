@@ -1,5 +1,5 @@
-import removeElements from './removeElements';
-import userChoices from './userChoices';
+import {removeElements} from './removeElements';
+import {userChoices} from './userChoices';
 
 const createPage = {
 	tasks: ['Teach', 'Analyse'],
@@ -67,4 +67,4 @@ const createPage = {
 	},
 };
 
-module.exports = createPage;
+export {createPage};

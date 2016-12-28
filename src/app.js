@@ -1,4 +1,4 @@
-import createPage from './createPage';
+import {createPage} from './createPage';
 
 document.addEventListener('DOMContentLoaded', function() {
 	'use strict';

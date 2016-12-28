@@ -538,4 +538,4 @@ const phonemes = {
     'vowel': false,
   },
 };
-module.exports = phonemes;
+export {phonemes};
