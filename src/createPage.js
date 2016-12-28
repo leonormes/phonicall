@@ -1,5 +1,7 @@
 const removeElements = require('./removeElements');
+const userChoices = require('./userChoices');
 const createPage = {
+	tasks: ['Teach', 'Analyse'],
 	pageFrame: function() {
 		let outerDiv = document.createElement('div');
 		outerDiv.setAttribute('class', 'container');
@@ -36,6 +38,31 @@ const createPage = {
 		while (headText.firstChild) {
 			headText.removeChild(headText.firstChild);
 		}
+	},
+	addTasks: function() {
+		this.tasks.forEach(function(task) {
+			let link = document.createElement('button');
+			let linkText = document.createTextNode(task);
+			link.setAttribute('id', task.toLowerCase());
+			link.addEventListener('click', function() {
+				userChoices.enterApp(this.id);
+			});
+			link.appendChild(linkText);
+			document.getElementsByClassName('content')[0].appendChild(link);
+		});
+	},
+
+	addHeading: function() {
+		let _self = this;
+		let heading = document.createElement('h1');
+		heading.setAttribute('id', 'heading');
+		heading.addEventListener('click', function() {
+			removeElements.removeContent();
+			_self.addTasks();
+			_self.setHeadingText('What to do?');
+		});
+		document.getElementsByClassName('header')[0].appendChild(heading);
+		_self.setHeadingText('What to do?');
 	},
 };
 
