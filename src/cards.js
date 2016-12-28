@@ -22,7 +22,6 @@ const cards = {
 			deck.setAttribute('id', i);
 			deck.appendChild(deckLabel);
 			deck.addEventListener('click', function() {
-				console.log(this.id);
 				_self.createFlashCard(this.id);
 			});
 			document.getElementsByClassName('content')[0].appendChild(deck);

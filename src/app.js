@@ -1,13 +1,17 @@
 const removeElements = require('./removeElements');
 const createPage = require('./createPage');
 const cards = require('./cards');
+const userChoices = require('./userChoices');
 
 document.addEventListener('DOMContentLoaded', function() {
 	'use strict';
+	const tasks = ['Teach', 'Analyse'];
 	document.body.onload =
 	createPage.pageFrame();
 	createPage.headerFrame();
 	createPage.contentFrame();
+	addHeading();
+	addTasks();
 
 	// if('serviceWorker' in navigator) {
 	// 	navigator.serviceWorker
@@ -19,15 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 	});
 	// }
 
-	const tasks = ['Teach', 'Analyse'];
-
 	function addTasks() {
 		tasks.forEach(function(task) {
 			let link = document.createElement('button');
 			let linkText = document.createTextNode(task);
 			link.setAttribute('id', task.toLowerCase());
 			link.addEventListener('click', function() {
-				enterApp(this.id);
+				userChoices.enterApp(this.id);
 			});
 			link.appendChild(linkText);
 			document.getElementsByClassName('content')[0].appendChild(link);
@@ -45,30 +47,4 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementsByClassName('header')[0].appendChild(heading);
 		createPage.setHeadingText('What to do');
 	}
-
-
-	addHeading();
-	addTasks();
-
-	function enterApp(task) {
-		removeElements.removeContent();
-		switch (task) {
-			case 'teach':
-			createPage.setHeadingText(task);
-			cards.cardDecks();
-			break;
-			case 'assess':
-			createAssessmentCards();
-			break;
-			case 'Analyse':
-			default:
-		}
-	}
-
-	function createAssessmentCards() {
-		let phoneme = document.createElement('div');
-		let grapheme = document.createTextNode('a');
-		phoneme.appendChild(grapheme);
-		document.getElementsByClassName('content')[0].appendChild(phoneme);
-	};
 });
