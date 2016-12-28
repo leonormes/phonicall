@@ -1,5 +1,6 @@
-const removeElements = require('./removeElements');
-const userChoices = require('./userChoices');
+import removeElements from './removeElements';
+import userChoices from './userChoices';
+
 const createPage = {
 	tasks: ['Teach', 'Analyse'],
 	pageFrame: function() {

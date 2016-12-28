@@ -1,11 +1,12 @@
-const createPage = require('./createPage');
-const removeElements = require('./removeElements');
-const cards = require('./cards');
+import cards from './cards';
+import createPage from './createPage';
+import removeElements from './removeElements';
+
 const userChoices = {
 	enterApp: function(task) {
-		removeElements.removeContent();
 		switch (task) {
 			case 'teach':
+			removeElements.removeContent();
 			createPage.setHeadingText(task);
 			cards.cardDecks();
 			break;

@@ -1,6 +1,7 @@
-const phonemes = require('./phonemes');
-const createPage = require('./createPage');
-const removeElements = require('./removeElements');
+import createPage from './createPage';
+import phonemes from './phonemes';
+import removeElements from './removeElements';
+
 const cards = {
 	cardSet: [],
 	cardNumber: 0,
