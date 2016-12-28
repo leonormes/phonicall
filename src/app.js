@@ -54,12 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		removeElements.removeContent();
 		switch (task) {
 			case 'teach':
-			console.log(task);
 			createPage.setHeadingText(task);
 			cards.cardDecks();
 			break;
 			case 'assess':
-			console.log(task);
 			createAssessmentCards();
 			break;
 			case 'Analyse':

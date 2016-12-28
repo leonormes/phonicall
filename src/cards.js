@@ -32,7 +32,6 @@ const cards = {
 	createFlashCard: function(setID) {
 		let _self = this;
 		let card = this.flashCardSet(setID);
-		console.log(card);
 		createPage.setHeadingText('Phase ' + setID);
 		let phoneme = document.createElement('div');
 		phoneme.setAttribute('id', 'flashcard');
