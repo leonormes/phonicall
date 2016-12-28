@@ -1,6 +1,6 @@
-const phonemes = require('./phonemes');
 const removeElements = require('./removeElements');
 const createPage = require('./createPage');
+const cards = require('./cards');
 
 document.addEventListener('DOMContentLoaded', function() {
 	'use strict';
@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 	});
 	// }
 
-	const cardSet = [];
-	let cardNumber = 0;
 	const tasks = ['Teach', 'Analyse'];
 
 	function addTasks() {
@@ -42,18 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		heading.addEventListener('click', function() {
 			removeElements.removeContent();
 			addTasks();
-			setHeadingText('What to do?');
+			createPage.setHeadingText('What to do?');
 		});
 		document.getElementsByClassName('header')[0].appendChild(heading);
-		setHeadingText('What to do');
+		createPage.setHeadingText('What to do');
 	}
 
-	function setHeadingText(text) {
-		removeElements.removeHeadingText();
-		let parentDiv = document.getElementById('heading');
-		let textNode = document.createTextNode(text);
-		parentDiv.appendChild(textNode);
-	};
+
 	addHeading();
 	addTasks();
 
@@ -62,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		switch (task) {
 			case 'teach':
 			console.log(task);
-			setHeadingText(task);
-			cardDecks();
+			createPage.setHeadingText(task);
+			cards.cardDecks();
 			break;
 			case 'assess':
 			console.log(task);
@@ -74,61 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
-	function cardDecks() {
-		for(let i = 1; i < 8; i++) {
-			let deck = document.createElement('div');
-			let deckLabel = document.createTextNode('Set '+i);
-			deck.setAttribute('class', 'card-deck');
-			deck.setAttribute('id', i);
-			deck.appendChild(deckLabel);
-			deck.addEventListener('click', function() {
-				createFlashCard(this.id);
-			});
-			document.getElementsByClassName('content')[0].appendChild(deck);
-		};
-	}
-
-	function createFlashCard(setID) {
-		let card = flashCardSet(setID);
-		setHeadingText('Phase ' + setID);
-		let phoneme = document.createElement('div');
-		phoneme.setAttribute('id', 'flashcard');
-		phoneme.addEventListener('click', function() {
-			nextCard();
-		});
-		let grapheme = document.createTextNode(card[cardNumber]);
-		phoneme.appendChild(grapheme);
-		removeElements.removeContent();
-		document.getElementsByClassName('content')[0].appendChild(phoneme);
-	};
-
 	function createAssessmentCards() {
 		let phoneme = document.createElement('div');
 		let grapheme = document.createTextNode('a');
 		phoneme.appendChild(grapheme);
 		document.getElementsByClassName('content')[0].appendChild(phoneme);
-	};
-
-
-	function nextCard() {
-		let deckSize = cardSet.length;
-		if (cardNumber === deckSize-1) {
-			cardNumber = 0;
-		} else {
-			cardNumber++;
-		};
-		let card = document.getElementById('flashcard');
-		let grapheme = document.createTextNode(cardSet[cardNumber]);
-		card.replaceChild(grapheme, card.childNodes[0]);
-	}
-
-	let flashCardSet = function(set) {
-		cardSet.length = 0;
-		for (let sound in phonemes) {
-			if (phonemes[sound].JollyPhonics === parseInt(set))
-			cardSet.push(phonemes[sound].grapheme.main);
-		}
-		console.log(cardSet);
-		return cardSet;
 	};
 });
